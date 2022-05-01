@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+option go_package = "pb/;userservicepb";
+import "google/api/annotations.proto";
+
+service UserService {
+  rpc NewUser(NewUserRequest) returns(NewUserResponse) {
+    option (google.api.http) = {
+      post: "/user/new"
+      body: "*"
+    };
+  }
+
+  rpc Hello(HelloRequest) returns(HelloResponse) {
+    option (google.api.http) = {
+      get: "/user/hello"
+    };
+  }
+
+  rpc GetUserByName(GetUserByNameRequest) returns(UserResponse) {
+    option (google.api.http) = {
+      get: "/user/name/{username}"
+    };
+  }
+
+  rpc GetUserByID(GetUserByIDRequest) returns(UserResponse) {
+    option (google.api.http) = {
+      get: "/user/id/{id}"
+    };
+  }
+
+  rpc UpdateUserInfo(UpdateUserInfoRequest) returns(UserResponse) {
+    option (google.api.http) = {
+      post: "/user/update"
+      body: "*"
+    };
+  }
+
+  rpc Login(LoginRequest) returns(UserResponse) {
+    option (google.api.http) = {
+      post: "/user/login"
+      body: "*"
+    };
+  }
+
+  rpc Test(TestRequest) returns(TestResponse) {
+    option (google.api.http) = {
+      get: "/user/test/{query}"
+    };
+  }
+}
+
+message TestRequest {
+  string query = 1;
+  string name = 2;
+  string age = 3;
+  string token = 4;
+}
+message TestResponse {
+  string name = 1;
+  string age = 2;
+}
+
+
+// rpc hello
+message HelloRequest{}
+message HelloResponse{
+  string message = 1;
+}
+
+
+// rpc newuser
+message NewUserRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message NewUserResponse {
+  string username = 1;
+  string token = 2;
+}
+
+/// rpc getuserbyname
+message GetUserByNameRequest {
+  string username = 1;
+}
+
+/// rpc getuserbyid
+message GetUserByIDRequest {
+  int64 id = 1;
+}
+
+message UserResponse {
+  int64 id = 1;
+  string username = 2;
+  string avatar = 3;
+  string email = 4;
+  string token = 5;
+  int64 user_id = 6;
+}
+
+/// rpc updateuser
+message UpdateUserInfoRequest {
+  int64 id = 1;
+  string username = 2;
+  string email = 3;
+  string avatar = 4;
+}
+
+/// rpc login
+message LoginRequest {
+  string username = 1;
+  string password = 2;
+}
