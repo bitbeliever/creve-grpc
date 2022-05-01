@@ -32,7 +32,7 @@ func main() {
 		}
 	}()
 
-	//grpcClientTest()
+	grpcClientTest()
 
 	httpClient()
 }
@@ -46,13 +46,16 @@ func grpcClientTest() {
 	}
 
 	cli := userservicepb.NewUserServiceClient(conn)
-	resp, err := cli.NewUser(context.Background(), &userservicepb.NewUserRequest{
-		Username: "videogamedunkey",
+	resp, err := cli.Test(context.Background(), &userservicepb.TestRequest{
+		Name:  "plopski",
+		Age:   "20",
+		Query: "query",
+		Token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MSwiQ3JlYXRlZEF0IjoiMjAyMi0wNC0yM1QyMjozNToyMi4yMyswODowMCIsIlVwZGF0ZWRBdCI6IjIwMjItMDQtMjNUMjI6MzU6MjIuMjMrMDg6MDAiLCJEZWxldGVkQXQiOm51bGwsIlVzZXJuYW1lIjoic2hveCIsIlBhc3N3b3JkIjoiMTIzNCIsIkF2YXRhciI6Imh0dHBzOi8vZ3cuYWxpcGF5b2JqZWN0cy5jb20vem9zL2FudGZpbmNkbi9YQW9zWHVOWnlGL0JpYXpmYW54bWFtTlJveHhWeGthLnBuZyIsIkVtYWlsIjoiIiwiU2FsdCI6IiIsIlBob25lIjoiIiwiU3RhdHVzIjowfQ.V8BSInvjIdAJVdsm1zJOFqpPcA75rkHhJg6wwM_BvC8",
 	})
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(resp)
+	fmt.Println("client test:", resp)
 }
 
 func httpClient() {
