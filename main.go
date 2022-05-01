@@ -38,7 +38,7 @@ func main() {
 }
 
 func grpcClientTest() {
-	conn, err := grpc.Dial("localhost:9090",
+	conn, err := grpc.Dial("127.0.0.1:9090",
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
 	)
 	if err != nil {
@@ -58,7 +58,7 @@ func grpcClientTest() {
 func httpClient() {
 	conn, err := grpc.DialContext(
 		context.Background(),
-		"localhost:9090",
+		"127.0.0.1:9090",
 		grpc.WithBlock(),
 		grpc.WithTransportCredentials(insecure.NewCredentials()),
 		grpc.WithPerRPCCredentials(user.TokenAuth{Token: "token is sth"}),
@@ -73,9 +73,9 @@ func httpClient() {
 	}
 
 	gwServer := &http.Server{
-		Addr:    "localhost:9091",
+		Addr:    "127.0.0.1:9091",
 		Handler: gwmux,
 	}
-	log.Println("Serving gRPC-Gateway on http://localhost:9091")
+	log.Println("Serving gRPC-Gateway on http://127.0.0.1:9091")
 	log.Fatalln(gwServer.ListenAndServe())
 }
