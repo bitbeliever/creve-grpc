@@ -1,4 +1,4 @@
-module github.com/xblymmx/creve-grpc
+module github.com/bitbeliever/creve-grpc
 
 go 1.17
 

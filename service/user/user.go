@@ -3,10 +3,10 @@ package user
 import (
 	"context"
 	"encoding/json"
+	"github.com/bitbeliever/creve-grpc/model"
+	"github.com/bitbeliever/creve-grpc/pkg/jwt"
+	userservicepb "github.com/bitbeliever/creve-grpc/proto/user/pb"
 	jwtutil "github.com/bitbeliever/microutils/jwt"
-	"github.com/xblymmx/creve-grpc/model"
-	"github.com/xblymmx/creve-grpc/pkg/jwt"
-	userservicepb "github.com/xblymmx/creve-grpc/proto/user/pb"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"log"

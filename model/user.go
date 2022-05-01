@@ -2,8 +2,8 @@ package model
 
 import (
 	"errors"
-	"github.com/xblymmx/creve-grpc/pkg/id"
-	userservicepb "github.com/xblymmx/creve-grpc/proto/user/pb"
+	"github.com/bitbeliever/creve-grpc/pkg/id"
+	userservicepb "github.com/bitbeliever/creve-grpc/proto/user/pb"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"gorm.io/gorm"

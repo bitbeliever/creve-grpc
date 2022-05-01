@@ -2,9 +2,9 @@ package jwt
 
 import (
 	"errors"
+	"github.com/bitbeliever/creve-grpc/configs"
+	"github.com/bitbeliever/creve-grpc/model"
 	"github.com/golang-jwt/jwt"
-	"github.com/xblymmx/creve-grpc/configs"
-	"github.com/xblymmx/creve-grpc/model"
 )
 
 type userToken struct {

@@ -3,10 +3,10 @@ package main
 import (
 	"context"
 	"fmt"
+	_ "github.com/bitbeliever/creve-grpc/configs"
+	userservicepb "github.com/bitbeliever/creve-grpc/proto/user/pb"
+	"github.com/bitbeliever/creve-grpc/service/user"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	_ "github.com/xblymmx/creve-grpc/configs"
-	userservicepb "github.com/xblymmx/creve-grpc/proto/user/pb"
-	"github.com/xblymmx/creve-grpc/service/user"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"log"
