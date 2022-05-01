@@ -11,6 +11,7 @@ var db *gorm.DB
 
 func init() {
 	var err error
+	//db, err = gorm.Open(mysql.Open("hs:hs@tcp(172.22.183.60:3306)/db?charset=utf8mb4&parseTime=True&loc=Local"))
 	db, err = gorm.Open(mysql.Open("hs:hs@tcp(mysql-service:3306)/db?charset=utf8mb4&parseTime=True&loc=Local"))
 	if err != nil {
 		panic(err)
